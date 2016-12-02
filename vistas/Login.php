@@ -18,7 +18,7 @@ history.go(-1);
 <br />
 <br />
 
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
 
 <table align="center" bgcolor ="#CCCCCC" border="0" cellpadding="5" cellspacing="0" width="32%" >
     

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Editando Tour</title>
+<title>Editando Hotel</title>
 <script>
 function atras(){
 history.go(-1);
@@ -14,17 +14,17 @@ history.go(-1);
 
 <center>
 
-<h1>Editar Tour</h1>
+<h1>Editar Hotel</h1>
 <br />
 <br />
 
-<form action="EditarT.php" method="POST" enctype="multipart/form-data">
+<form action="EditarH.php" method="post" enctype="multipart/form-data">
 
 <table align="center" bgcolor ="#CCCCCC" border="0" cellpadding="5" cellspacing="0" width="32%" >
 
 <tr>
-<td width="80%" bgcolor="#CCCCCC"><font size=4>Nombre del Tour:</font></td>
-<td width="50%"><input required name="tour" type="text" size="46" placeholder="Tour"></td>
+<td width="80%" bgcolor="#CCCCCC"><font size=4>Nombre del Hotel:</font></td>
+<td width="50%"><input required name="hotel" type="text" size="46" placeholder="Hotel"></td>
 </tr>
 
 <tr>
@@ -38,7 +38,7 @@ history.go(-1);
 
 <tr align="left">
         <td width="50%"><input name="safe" type="button" value="Atras" onclick="atras()"/></td>
-      	<td width="50%"><input name="safe" type="submit" value="Buscar Tour"/></td>
+      	<td width="50%"><input name="safe" type="submit" value="Buscar Hotel"/></td>
         <td width="50%"><input name="safe" type="reset" value="Restablecer"/></td>
  	</tr>
 </form>
