@@ -25,41 +25,41 @@ history.go(-1);
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Nombre del Hotel:</font></td>
-<td width="50%"><input required name="HOTEL[]" type="text" size="46" placeholder="Hotel"></td>
+<td width="50%"><input required name="nombre" type="text" size="46" placeholder="Hotel"></td>
 </tr>
 
 <tr>
    	<td width="50%" bgcolor="#CCCCCC">Descripcion: </td>
   	 
-<td width="50%" ><textarea maxlength="255" placeholder="Descripcion" name="HOTEL[]" rows="4" cols="48"></textarea>
+<td width="50%" ><textarea maxlength="255" placeholder="Descripcion" name="descripcion" rows="4" cols="48"></textarea>
    	</td>
  	</tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Cantidad de estrellas:</font></td>
-<td width="50%"><input required name="HOTEL[]" type="text" size="46" placeholder="Estrellas" ></td>
+<td width="50%"><input required name="estrellas" type="text" size="46" placeholder="Estrellas" ></td>
 </tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Cuidad:</font></td>
-<td width="50%"><input required name="REQUEST[]" type="text" size="46" placeholder="Cuidad" ></td>
+<td width="50%"><input required name="cuidad" type="text" size="46" placeholder="Cuidad" ></td>
 </tr>
 
 <tr>
    	<td width="50%" bgcolor="#CCCCCC">Direccion: </td>
   	 
-<td width="50%" ><textarea maxlength="255" placeholder="Direccion" name="HOTEL[]" rows="4" cols="48"></textarea>
+<td width="50%" ><textarea maxlength="255" placeholder="Direccion" name="direccion" rows="4" cols="48"></textarea>
    	</td>
  	</tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Telefono:</font></td>
-<td width="50%"><input required name="HOTEL[]" type="text" size="46" placeholder="Telefono" ></td>
+<td width="50%"><input required name="telefono" type="text" size="46" placeholder="Telefono" ></td>
 </tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Email:</font></td>
-<td width="50%"><input required name="HOTEL[]" type="text" size="46" placeholder="Email" ></td>
+<td width="50%"><input required name="email" type="text" size="46" placeholder="Email" ></td>
 </tr>
 
 <tr align="center">

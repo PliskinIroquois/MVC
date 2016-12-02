@@ -17,10 +17,10 @@
 			<li><a href="#"><span class="iconic home"></span> Menu Principal</a></li>
 			<li><a href="#"><span class="iconic plus-alt"></span> Hoteles</a>
 				<ul>
-					<li><a href="AgregarH.php">Agregar</a></li>
+					<li><a href="hotel.php?action=create">Agregar</a></li>
 					<li><a href="Pre_EditarH.php">Editar</a></li>
                     <li><a href="EliminarH.php">Eliminar</a></li>
-                    <li><a href="MostrarH.php">Mostrar Todos</a></li>
+                    <li><a href="hotel.php?action=show">Mostrar Todos</a></li>
 				</ul>
 			</li>
 			<li><a href="#"><span class="iconic plus-alt"></span> Tours</a>

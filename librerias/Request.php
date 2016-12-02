@@ -10,6 +10,7 @@ class Request {
     private $id;
     const POST = 'POST';
     const GET = 'GET';
+    const FILES = 'FILES';
     
     public function __construct($dataRequest) {
         $this->dataRequest = $dataRequest;
@@ -22,5 +23,15 @@ class Request {
         }
         return $value;
     }
+    
+    
+    public function input2($inputName){
+    	$value = null;
+    	if(isset($this->dataRequest[$inputName])){
+    		$value = $this->dataRequest[$inputName];
+    	}
+    	return $value;
+    }
+    
     
 }
