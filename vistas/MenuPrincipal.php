@@ -39,7 +39,7 @@
                     <li><a href="usuario.php?action=show">Mostrar Todos</a></li>
 				</ul>
 			</li>
-            <li><a href="#"><span class="iconic plus-alt"></span> Salir</a></li>
+            <li><a href="../logout.php"><span class="iconic plus-alt"></span> Salir</a></li>
 		</ul>
 		<div class="clearfix"></div>
 	</nav>

@@ -3,7 +3,7 @@
 
 	if ((isset($_SESSION['username']) != '')) 
 	{
-		header('Location:MenuPrincipal.php');
+		header('Location:vistas/MenuPrincipal.php');
 	}	
 ?>
 <!doctype html>
