@@ -19,19 +19,30 @@ class hotelController {
 	}
 
 	public function show() {
-		$hoteles = hotel::findAll();
+		$hoteles = hotelM::findAll();
 		require_once ROOT_PATH . '\MVC\vistas\Hotel/MostrarH.php';
+	}
+	
+	public function findByID($id) {
+		$hoteles = hotelM::find($id);
+		if($hoteles<>null){
+		require_once ROOT_PATH . '\MVC\vistas\Hotel/EditarH.php';
+		}else{
+			echo"<script>
+					history.go(-1);
+					alert('No se encontro un hotel con ese nombre!!');
+					</script>";
+		}
 	}
 
 	public function create(Request $request) {
 		if (($this->requestMethod == Request::POST)&&($this->requestMethod == Request::FILES)) {
-			$hotel = new hotel();
-			$hotel->id = $request->input('idH');
+			$hotel = new hotelM();
 			$hotel->nombre = $request->input('nombre');
-			$hotel->apellidos = $request->input('descripcion');
+			$hotel->apellidos = $request->input('Descripcion');
 			$hotel->cantidadEstrellas = $request->input('estrellas');
 			$hotel->cuidad = $request->input('cuidad');
-			$hotel->direccion = $request->input('direccion');
+			$hotel->direccion = $request->input('Direccion');
 			$hotel->telefono = $request->input('telefono');
 			$hotel->email = $request->input('email');
 			$archivo = $request->input('imagen')['tmp_name'];
@@ -39,18 +50,17 @@ class hotelController {
 			move_uploaded_file($archivo, $destino);
 			$hotel->ubicacionFotografia = $destino;
 			$hotel->save();
-			// Redirige a pagina index de Persona
-			header('Location: ' . WEB_PATH . '/hotel.php');
+			header('Location: ' . WEB_PATH . '/hotel.php?action=index');
 		} else {
 			require_once ROOT_PATH . '/vistas/hotel/AgregarH.php';
 		}
 	}
 
 	public function edit($id, Request $request) {
-		$hotel = hotel::find($id);
+		$hotel = hotelM::find($id);
 		if (($this->requestMethod == Request::POST)&&($this->requestMethod == Request::FILES)) {
 
-			$hotel->id = $request->input('idH');
+			$hotel->id = $request->input('idHotel');
 			$hotel->nombre = $request->input('nombre');
 			$hotel->apellidos = $request->input('descripcion');
 			$hotel->cantidadEstrellas = $request->input('estrellas');
@@ -63,7 +73,7 @@ class hotelController {
 			move_uploaded_file($archivo, $destino);
 			$hotel->ubicacionFotografia = $destino;
 			$hotel->save();
-			// Redirige a pagina index de Persona
+			
 			header('Location: ' . WEB_PATH . '/hotel.php?action=index');
 		} else {
 			require_once ROOT_PATH . '/vistas/hotel/Pre_Editar.php';
@@ -71,9 +81,9 @@ class hotelController {
 	}
 
 	public function delete($id) {
-		$hotel = hotel::find($id);
+		$hotel = hotelM::find($id);
 		$hotel->delete();
-		// Redirige a pagina index de Persona
+		header('Location: ' . WEB_PATH . '/hotel.php?action=index');
 	}
 
 }

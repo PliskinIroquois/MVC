@@ -7,9 +7,7 @@ history.go(-1);
 }
 </script>";
 
-$var = $_POST['hotel'];
-
-if($var==1){
+foreach ($hoteles as $hotel):
 
 echo "<head>
 <link href='css/MenuP.css' rel='stylesheet' type='text/css' />
@@ -23,52 +21,57 @@ echo "<head>
 <br />
 <br />
 
-<form action='' method='POST' enctype='multipart/form-data'>
+<form action='(WEB_PATH . '/hotel.php?action=edit&id=' . $hotel->id) ' method='POST' enctype='multipart/form-data'>
 
 <table align='center' bgcolor ='#CCCCCC' border='0' cellpadding='5' cellspacing='0' width='32%' >
 
 <tr>
+<td width='80%' bgcolor='#CCCCCC'><font size=4>ID del Hotel:</font></td>
+<td width='50%'><input required name='nombre' type='text' size='46' value='$hotel->id'></td>
+</tr>
+
+<tr>
 <td width='80%' bgcolor='#CCCCCC'><font size=4>Nombre del Hotel:</font></td>
-<td width='50%'><input required name='HOTEL[]' type='text' size='46' placeholder='Hotel'></td>
+<td width='50%'><input required name='idHotel' type='text' size='46'value='$hotel->nombre'></td>
 </tr>
 
 <tr>
    	<td width='50%' bgcolor='#CCCCCC'>Descripcion: </td>
   	 
-<td width='50%' ><textarea maxlength='255' placeholder='Descripcion' name='HOTEL[]' rows='4' cols='48'></textarea>
+<td width='50%' ><textarea maxlength='255' name='Descripcion' rows='4' cols='48' value='$hotel->descripcion'></textarea>
    	</td>
  	</tr>
 
 <tr>
 <td width='80%' bgcolor='#CCCCCC'><font size=4>Cantidad de estrellas:</font></td>
-<td width='50%'><input required name='HOTEL[]' type='text' size='46' placeholder='Estrellas' ></td>
+<td width='50%'><input required name='estrellas' type='text' size='46' value='$hotel->cantidadEstrellas'></td>
 </tr>
 
 <tr>
 <td width='80%' bgcolor='#CCCCCC'><font size=4>Cuidad:</font></td>
-<td width='50%'><input required name='HOTEL[]' type='text' size='46' placeholder='Cuidad' ></td>
+<td width='50%'><input required name='cuidad' type='text' size='46' value='$hotel->cuidad'></td>
 </tr>
 
 <tr>
    	<td width='50%' bgcolor='#CCCCCC'>Direccion: </td>
   	 
-<td width='50%' ><textarea maxlength='255' placeholder='Direccion' name='HOTEL[]' rows='4' cols='48'></textarea>
+<td width='50%' ><textarea maxlength='255' name='Direccion' rows='4' cols='48' value='$hotel->direccion'></textarea>
    	</td>
  	</tr>
 
 <tr>
 <td width='80%' bgcolor='#CCCCCC'><font size=4>Telefono:</font></td>
-<td width='50%'><input required name='HOTEL[]' type='text' size='46' placeholder='Telefono' ></td>
+<td width='50%'><input required name='telefono' type='text' size='46' value='$hotel->telefono'></td>
 </tr>
 
 <tr>
 <td width='80%' bgcolor='#CCCCCC'><font size=4>Email:</font></td>
-<td width='50%'><input required name='HOTEL[]' type='text' size='46' placeholder='Email' ></td>
+<td width='50%'><input required name='email' type='text' size='46' value='$hotel->email'></td>
 </tr>
 
 <tr align='center'>
 <td width='80%' bgcolor='#CCCCCC'>Seleccionar Archivo: </td>
-<td bgcolor='#CCCCCC'><input required type='file' name='imagen' accept='file/*'></td>
+<td bgcolor='#CCCCCC'><input required type='file' name='imagen' accept='file/*' value='$hotel->ubicacionFotografia'></td>
 </tr>
 <tr>
 <td></td>
@@ -92,16 +95,7 @@ echo "<head>
 </center>
 
 </body>";
-}else{
-	
-	echo "<script>
-alert('No existe un hotel con ese nombre');
-history.go(-1);
-</script>";
-	
-	}
-
-
+endforeach;
 
 ?>
 

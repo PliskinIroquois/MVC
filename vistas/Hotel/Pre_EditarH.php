@@ -18,12 +18,12 @@ history.go(-1);
 <br />
 <br />
 
-<form action="EditarH.php" method="post" enctype="multipart/form-data">
+<form action="validarHotel_Edit.php" method="post" enctype="multipart/form-data">
 
 <table align="center" bgcolor ="#CCCCCC" border="0" cellpadding="5" cellspacing="0" width="32%" >
 
 <tr>
-<td width="80%" bgcolor="#CCCCCC"><font size=4>Nombre del Hotel:</font></td>
+<td width="80%" bgcolor="#CCCCCC"><font size=4>ID del Hotel:</font></td>
 <td width="50%"><input required name="hotel" type="text" size="46" placeholder="Hotel"></td>
 </tr>
 
