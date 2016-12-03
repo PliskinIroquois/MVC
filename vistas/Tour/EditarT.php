@@ -21,7 +21,7 @@ echo "<head>
 <br />
 <br />";
 foreach ($toures as $tour):
-echo "<form action='(WEB_PATH . '/tour.php?action=edit&id=' . $tour->id)' method='post' enctype='multipart/form-data'>
+echo "<form action='(WEB_PATH . '../../tour.php?action=edit&id=' . $tour->id)' method='post' enctype='multipart/form-data'>
 
 <table align='center' bgcolor ='#CCCCCC' border='0' cellpadding='5' cellspacing='0' width='32%' >
 

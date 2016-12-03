@@ -15,13 +15,13 @@ class hotelController {
 
 	public function index() {
 		//$hoteles = hotel::findAll();
-		require_once ROOT_PATH . '/vistas/MenuPrincipal.php';
+		require_once ROOT_PATH . '../MenuPrincipal.php';
 	}
 
 	public function show() {
 		$hoteles = hotelM::findAll();
 		if($hoteles<>null){
-		require_once ROOT_PATH . '\MVC\vistas\Hotel/MostrarH.php';
+		require_once ROOT_PATH . 'Hotel/MostrarH.php';
 		}else{
 			echo"<script>
 					history.go(-1);
@@ -33,7 +33,7 @@ class hotelController {
 	public function findByID($id) {
 		$hoteles = hotelM::find($id);
 		if($hoteles<>null){
-		require_once ROOT_PATH . '\MVC\vistas\Hotel/EditarH.php';
+		require_once ROOT_PATH . 'Hotel/EditarH.php';
 		}else{
 			echo"<script>
 					history.go(-1);
@@ -57,9 +57,9 @@ class hotelController {
 			move_uploaded_file($archivo, $destino);
 			$hotel->ubicacionFotografia = $destino;
 			$hotel->save();
-			header('Location: ' . WEB_PATH . '/hotel.php?action=index');
+			header('Location: ' . WEB_PATH . '../../hotel.php?action=index');
 		} else {
-			require_once ROOT_PATH . '/vistas/hotel/AgregarH.php';
+			require_once ROOT_PATH . 'Hotel/AgregarH.php';
 		}
 	}
 
@@ -81,16 +81,16 @@ class hotelController {
 			$hotel->ubicacionFotografia = $destino;
 			$hotel->save();
 			
-			header('Location: ' . WEB_PATH . '/hotel.php?action=index');
+			header('Location: ' . WEB_PATH . '../../hotel.php?action=index');
 		} else {
-			require_once ROOT_PATH . '/vistas/hotel/Pre_EditarH.php';
+			require_once ROOT_PATH . 'Hotel/Pre_EditarH.php';
 		}
 	}
 
 	public function delete($id) {
 		$hotel = hotelM::find($id);
 		$hotel->delete();
-		header('Location: ' . WEB_PATH . '/hotel.php?action=index');
+		header('Location: ' . WEB_PATH . '../../hotel.php?action=index');
 	}
 
 }

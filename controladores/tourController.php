@@ -14,22 +14,22 @@ class tourController {
 	}
 
 	public function index() {
-		require_once ROOT_PATH . '/vistas/MenuPrincipal.php';
+		require_once ROOT_PATH . '../MenuPrincipal.php';
 	}
 
 	public function show() {
 		$hoteles = tourM::findAll();
-		require_once ROOT_PATH . '\MVC\vistas\Tour/MostrarT.php';
+		require_once ROOT_PATH . 'Tour/MostrarT.php';
 	}
 	
 	public function findByID($id) {
 		$toures = tourM::find($id);
 		if($toures<>null){
-		require_once ROOT_PATH . '\MVC\vistas\Tour/EditarT.php';
+		require_once ROOT_PATH . 'Tour/EditarT.php';
 		}else{
 			echo"<script>
 					history.go(-1);
-					alert('No se encontro un tour con ese nombre!!');
+					alert('No se encontro un tour con ese ID!!');
 					</script>";
 		}
 	}
@@ -44,9 +44,9 @@ class tourController {
 			$tour->email = $request->input('email');
 			$tour->ubicacionTour = $request->input('ubicacionTour');
 			$tour->save();
-			header('Location: ' . WEB_PATH . '/tour.php?action=index');
+			header('Location: ' . WEB_PATH . '../../tour.php?action=index');
 		} else {
-			require_once ROOT_PATH . '/vistas/tour/AgregarT.php';
+			require_once ROOT_PATH . 'Tour/AgregarT.php';
 		}
 	}
 
@@ -63,16 +63,16 @@ class tourController {
 			$tour->ubicacionTour = $request->input('ubicacionTour');
 			$tour->save();
 			
-			header('Location: ' . WEB_PATH . '/tour.php?action=index');
+			header('Location: ' . WEB_PATH . '../../tour.php?action=index');
 		} else {
-			require_once ROOT_PATH . '/vistas/tour/Pre_EditarT.php';
+			require_once ROOT_PATH . 'Tour/Pre_EditarT.php';
 		}
 	}
 
 	public function delete($id) {
 		$tour = tourM::find($id);
 		$tour->delete();
-		header('Location: ' . WEB_PATH . '/tour.php?action=index');
+		header('Location: ' . WEB_PATH . '../../tour.php?action=index');
 	}
 
 }

@@ -14,14 +14,14 @@ class usuarioController {
 	}
 
 	public function index() {
-		require_once ROOT_PATH . '/vistas/MenuPrincipal.php';
+		require_once ROOT_PATH . '../MenuPrincipal.php';
 	}
 
 	public function show() {
 		
 		$usuarios = usuarioM::findAll();
 		if($usuarios<>null){
-		require_once ROOT_PATH . '\MVC\vistas\Usuario/MostrarU.php';
+		require_once ROOT_PATH . 'Usuario/MostrarU.php';
 		}else{
 			echo"<script>
 					history.go(-1);
@@ -33,7 +33,7 @@ class usuarioController {
 	public function findByID($id) {
 		$usuarios = usuarioM::find($id);
 		if($usuarios<>null){
-		require_once ROOT_PATH . '\MVC\vistas\Usuario/EditarU.php';
+		require_once ROOT_PATH . 'Usuario/EditarU.php';
 		}else{
 			echo"<script>
 					history.go(-1);
@@ -55,12 +55,12 @@ class usuarioController {
 			$usuario->clave = $request->input('clave');
 			$usuario->tipoUsuario = $request->input('op1');
 			$hotel->save();
-			header('Location: ' . WEB_PATH . '/usuario.php?action=index');
+			header('Location: ' . WEB_PATH . '../../usuario.php?action=index');
 			}else{
 				header('Location: history.go(-1)');
 			}
 		} else {
-			require_once ROOT_PATH . '/vistas/usuario/AgregarU.php';
+			require_once ROOT_PATH . 'Usuario/AgregarU.php';
 		}
 	}
 
@@ -78,16 +78,16 @@ class usuarioController {
 			$usuario->tipoUsuario = $request->input('op1');
 			$usuario->save();
 			
-			header('Location: ' . WEB_PATH . '/usuario.php?action=index');
+			header('Location: ' . WEB_PATH . '../../usuario.php?action=index');
 		} else {
-			require_once ROOT_PATH . '/vistas/usuario/Pre_EditarU.php';
+			require_once ROOT_PATH . 'Usuario/Pre_EditarU.php';
 		}
 	}
 
 	public function delete($id) {
 		$usuario = usuarioM::find($id);
 		$usuario->delete();
-		header('Location: ' . WEB_PATH . '/usuario.php?action=index');
+		header('Location: ' . WEB_PATH . '../../usuario.php?action=index');
 	}
 
 }
