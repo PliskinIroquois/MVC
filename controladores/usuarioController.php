@@ -18,10 +18,9 @@ class usuarioController {
 	}
 
 	public function show() {
-		
 		$usuarios = usuarioM::findAll();
 		if($usuarios<>null){
-		require_once ROOT_PATH . 'Usuario/MostrarU.php';
+		require_once 'vistas/Usuario/MostrarU.php';
 		}else{
 			echo"<script>
 					history.go(-1);
@@ -33,7 +32,7 @@ class usuarioController {
 	public function findByID($id) {
 		$usuarios = usuarioM::find($id);
 		if($usuarios<>null){
-		require_once ROOT_PATH . 'Usuario/EditarU.php';
+		require_once 'Usuario/EditarU.php';
 		}else{
 			echo"<script>
 					history.go(-1);

@@ -14,18 +14,19 @@ class tourController {
 	}
 
 	public function index() {
-		require_once ROOT_PATH . '../MenuPrincipal.php';
+		$toures = tourM::findAll();
+		require_once 'vistas/Tour/index.php';
 	}
 
 	public function show() {
-		$hoteles = tourM::findAll();
-		require_once ROOT_PATH . 'Tour/MostrarT.php';
+		$toures = tourM::findAll();
+		require_once 'vistas/Tour/MostrarT.php';
 	}
 	
 	public function findByID($id) {
 		$toures = tourM::find($id);
 		if($toures<>null){
-		require_once ROOT_PATH . 'Tour/EditarT.php';
+		require_once 'vistas/Tour/EditarT.php';
 		}else{
 			echo"<script>
 					history.go(-1);
@@ -46,7 +47,7 @@ class tourController {
 			$tour->save();
 			header('Location: ' . WEB_PATH . '/vistas/MenuPrincipal.php');
 		} else {
-			require_once ROOT_PATH . 'Tour/AgregarT.php';
+			require_once ROOT_PATH . 'vistas/Tour/AgregarT.php';
 		}
 	}
 
@@ -65,7 +66,7 @@ class tourController {
 			
 			header('Location: ' . WEB_PATH . '../../tour.php?action=index');
 		} else {
-			require_once ROOT_PATH . 'Tour/Pre_EditarT.php';
+			require_once ROOT_PATH . 'vistas/Tour/Pre_EditarT.php';
 		}
 	}
 
