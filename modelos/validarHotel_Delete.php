@@ -4,9 +4,7 @@ $idHotel = $_POST['hotel'];
 
 if($idHotel<>0){
 	
-
-	Location: ('../hotel.php?action=deletet&id=' . $idHotel);
-
+	echo "<script language='javascript'>window.location='('../hotel.php?action=deletet&id=' . $idHotel)'</script>";
 	
 }else{
 	
