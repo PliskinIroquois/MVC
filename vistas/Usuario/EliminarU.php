@@ -16,13 +16,13 @@ echo "<body>
 <br />
 <br />
 
-<form action='' method='POST' enctype='multipart/form-data'>
+<form action='validarUsuario_Delete.php' method='POST' enctype='multipart/form-data'>
 
 <table align='center' bgcolor ='#CCCCCC' border='0' cellpadding='5' cellspacing='0' width='32%' >
 
 <tr>
-<td width='80%' bgcolor='#CCCCCC'><font size=4>ID del usuario:</font></td>
-<td width='50%'><input required name='USUARIO[]' type='text' size='46' placeholder='User ID'></td>
+<td width='80%' bgcolor='#CCCCCC'><font size=4>NIF del usuario:</font></td>
+<td width='50%'><input required name='NIF' type='text' size='46' placeholder='User ID'></td>
 </tr>
 
 <tr>

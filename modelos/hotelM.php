@@ -29,6 +29,7 @@ class hotelM{
 
 	public function save(){ //--esta funcion puede hacer el update tambien
 		$db=baseDatos::getInstance();
+		if($this->id<>null){
 		$columnas= array('idHotel','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
 		$valores = array($this->id,$this->nombre, $this->descripcion, $this->cantidadEstrellas, $this->ciudad, $this->direccion, $this->telefono, $this->email, $this->ubicacionFotografia);
 		$filtros=array('idHotel'=>$this->id!= null);
@@ -37,7 +38,16 @@ class hotelM{
 		} else {
 			$bd->insert(self::$tabla, $columnas, $valores);
 		}
-
+		}else{
+			$columnas= array('nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
+			$valores = array($this->nombre, $this->descripcion, $this->cantidadEstrellas, $this->ciudad, $this->direccion, $this->telefono, $this->email, $this->ubicacionFotografia);
+			$filtros=array('idHotel'=>$this->id!= null);
+			if (is_numeric($this->id) && $this->id > 0) {
+				$bd->update(self::$tabla, $columnas, $valores, $filtros);
+			} else {
+				$bd->insert(self::$tabla, $columnas, $valores);
+			}
+		}
 
 	}
 
