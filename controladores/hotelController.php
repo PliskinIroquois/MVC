@@ -20,7 +20,14 @@ class hotelController {
 
 	public function show() {
 		$hoteles = hotelM::findAll();
+		if($hoteles<>null){
 		require_once ROOT_PATH . '\MVC\vistas\Hotel/MostrarH.php';
+		}else{
+			echo"<script>
+					history.go(-1);
+					alert('No se encontro un hotel con ese ID!!');
+					</script>";
+		}
 	}
 	
 	public function findByID($id) {
