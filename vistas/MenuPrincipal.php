@@ -19,7 +19,7 @@
 				<ul>
 					<li><a href="Hotel/AgregarH.php">Agregar</a></li>
 					<li><a href="Hotel/Pre_EditarH.php">Editar</a></li>
-                    <li><a href="Hotel/EliminarH.php">Eliminar</a></li>
+                    <li><a href="Hotel/index.php">Eliminar</a></li>
                     <li><a href="../hotel.php?action=show">Mostrar Todos</a></li>
 				</ul>
 			</li>
