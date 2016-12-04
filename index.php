@@ -1,9 +1,9 @@
 <?php
-	include('../../login.php'); // Include Login Script
+	include('login.php'); // Include Login Script
 
 	if ((isset($_SESSION['username']) != '')) 
 	{
-		header('Location:../MenuPrincipal.php');
+		header('Location:vistas/MenuPrincipal.php');
 	}	
 ?>
 <!doctype html>
@@ -77,11 +77,11 @@ input[type=submit]
 <td colspan="2" align="center" class="error"><?php echo $error;?></td>
 </tr>
 <tr>
-<td style="font-weight: bold"><div align="right">User Name:</div></td>
+<td style="font-weight: bold"><div align="right">Nombre de Usuario:</div></td>
 <td><input name="username" type="text" class="input" size="25" required /></td>
 </tr>
 <tr>
-<td height="23" style="font-weight: bold"><div align="right">Password:</div></td>
+<td height="23" style="font-weight: bold"><div align="right">Contrase_na:</div></td>
 <td><input name="password" type="password" class="input" size="25" required /></td>
 </tr>
 <tr>

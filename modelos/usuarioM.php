@@ -26,17 +26,26 @@ class usuarioM{
 	}
 
 	public function save(){ //--esta funcion puede hacer el update tambien
-		$db=baseDatos::getInstance();
+		$bd=baseDatos::getInstance();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		$columnas= array('NIF','username','nombreUsuario','apellidos','telefono','email','clave','userType');
 		$valores = array($this->NIF,$this->username,$this->nombre, $this->apellidos,$this->telefono, $this->email, $this->clave, $this->tipoUsuario);
 		$filtros=array('NIF'=>$this->NIF!= null);
-		if (is_numeric($this->NIF) && $this->NIF > 0) {
-			$bd->update(self::$tabla, $columnas, $valores, $filtros);
-		} else {
 			$bd->insert(self::$tabla, $columnas, $valores);
-		}
+			$bd->disconnect();
 
-
+	}
+	
+	public function edit(){ //--esta funcion puede hacer el update tambien
+		$bd=baseDatos::getInstance();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
+		$columnas= array('NIF','username','nombreUsuario','apellidos','telefono','email','clave','userType');
+		$valores = array($this->NIF,$this->username,$this->nombre, $this->apellidos,$this->telefono, $this->email, $this->clave, $this->tipoUsuario);
+		$filtros=array('NIF'=>$this->NIF!= null);
+			$bd->update(self::$tabla, $columnas, $valores, $filtros);
+			$bd->disconnect();
 	}
 
 	public function delete() {

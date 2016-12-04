@@ -28,7 +28,9 @@ class hotelM{
 	}
 
 	public function save(){ //--esta funcion puede hacer el update tambien
-		$db=baseDatos::getInstance();
+		$bd=baseDatos::getInstance();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		if($this->id<>null){
 		$columnas= array('idHotel','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
 		$valores = array($this->id,$this->nombre, $this->descripcion, $this->cantidadEstrellas, $this->ciudad, $this->direccion, $this->telefono, $this->email, $this->ubicacionFotografia);
@@ -47,7 +49,7 @@ class hotelM{
 			} else {
 				$bd->insert(self::$tabla, $columnas, $valores);
 			}
-		}
+		}$bd->disconnect();
 
 	}
 

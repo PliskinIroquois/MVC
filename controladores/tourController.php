@@ -35,16 +35,16 @@ class tourController {
 	}
 
 	public function create(Request $request) {
-		if (($this->requestMethod == Request::POST)&&($this->requestMethod == Request::FILES)) {
+		if ($this->requestMethod == Request::POST) {
 			$tour = new tourM();
-			$tour->nombre = $request->input('nombreTour');
-			$tour->descripcion = $request->input('DescripcionTour');
+			$tour->nombre = $request->input('nombre');
+			$tour->descripcion = $request->input('descripcion');
 			$tour->empresa = $request->input('empresa');
 			$tour->telefono = $request->input('telefono');
 			$tour->email = $request->input('email');
 			$tour->ubicacionTour = $request->input('ubicacionTour');
 			$tour->save();
-			header('Location: ' . WEB_PATH . '../../tour.php?action=index');
+			header('Location: ' . WEB_PATH . '/vistas/MenuPrincipal.php');
 		} else {
 			require_once ROOT_PATH . 'Tour/AgregarT.php';
 		}
@@ -55,8 +55,8 @@ class tourController {
 		if (($this->requestMethod == Request::POST)&&($this->requestMethod == Request::FILES)) {
 
 			$tour->id = $request->input('idTour');
-			$tour->nombre = $request->input('nombreTour');
-			$tour->Descripcion = $request->input('DescripcionTour');
+			$tour->nombre = $request->input('nombre');
+			$tour->Descripcion = $request->input('descripcion');
 			$tour->empresa = $request->input('empresa');
 			$tour->telefono = $request->input('telefono');
 			$tour->email = $request->input('email');

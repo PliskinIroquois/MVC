@@ -23,7 +23,9 @@ class tourM{
 	}
 
 	public function save(){ //--esta funcion puede hacer el update tambien
-		$db=baseDatos::getInstance();
+		$bd=baseDatos::getInstance();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		if($this->id<>null){
 		$columnas= array('idTour','nombreTour','descripcionTour','empresa','telefono','email','ubicacionTour');
 		$valores = array($this->id,$this->nombre, $this->descripcion, $this->empresa,$this->telefono, $this->email, $this->ubicacionTour);
@@ -44,7 +46,7 @@ class tourM{
 				$bd->insert(self::$tabla, $columnas, $valores);
 			}
 			
-		}
+		}$bd->disconnect();
 		
 	}
 

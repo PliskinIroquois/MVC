@@ -64,7 +64,7 @@ history.go(-1);
 
 <tr align="left">
 		<td width="50%">Tipo de Usuario</td>
-        <td width="80%"><select name="op1" id="op1"
+        <td width="80%"><select name="op1" id="op1">
   <option value="Administrador">Administrador</option>
   <option value="Gestionador_Contenido">Gestionador de Contenido</option>
   <option value="userWeb" >User Web</option>

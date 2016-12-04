@@ -43,10 +43,10 @@ class usuarioController {
 	}
 
 	public function create(Request $request) {
-		if (($this->requestMethod == Request::POST)&&($this->requestMethod == Request::FILES)) {
+		if ($this->requestMethod == Request::POST) {
 			$usuario = new usuarioM();
-			if($request->input('clave')<>$request->input('clave2')){
-			$usuario->id = $request->input('NIF');
+			if($request->input('clave')==$request->input('clave2')){
+			$usuario->NIF = $request->input('NIF');
 			$usuario->username = $request->input('username');
 			$usuario->nombre = $request->input('nombre');
 			$usuario->apellidos = $request->input('apellidos');
@@ -54,10 +54,10 @@ class usuarioController {
 			$usuario->email = $request->input('email');
 			$usuario->clave = $request->input('clave');
 			$usuario->tipoUsuario = $request->input('op1');
-			$hotel->save();
-			header('Location: ' . WEB_PATH . '../../usuario.php?action=index');
+			$usuario->save();
+			header('Location: ' . WEB_PATH . '/vistas/MenuPrincipal.php');
 			}else{
-				header('Location: history.go(-1)');
+				header('Location: history.go(-1);');
 			}
 		} else {
 			require_once ROOT_PATH . 'Usuario/AgregarU.php';
