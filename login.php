@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include_once("../../constantes.php"); 
-	include_once '../../librerias/baseDatos.php5';
+	include_once("constantes.php"); 
+	include_once 'librerias/baseDatos.php5';
 	
 	$error = ""; 
 	
@@ -33,8 +33,8 @@ define('BD_SERVIDOR', 'localhost');
 			$password=$_POST['password'];
 			
 			//para evitar injecciones de SQL
-			$username = stripslashes($username);
-			$password = stripslashes($password);
+			//$username = stripslashes($username);
+			//$password = stripslashes($password);
 			
 			//"SELECT uid FROM users WHERE username='$username' and password='$password'";
 			$filtros = array($username,md5($password)); //cambio de pass a md5
@@ -42,12 +42,13 @@ define('BD_SERVIDOR', 'localhost');
 			$verificar->connect();
 			$resultado=$verificar->select('usuarios', $filtros, $campos, true);
 			
-			$verificar->disconnect();
 			
-			if(mysqli_fetch_array($resultado)){
+			
+			if(mysqli_fetch_array($resultado)<>null){
 				session_start();
 				$_SESSION['nombreUsuario']=$username;
 				header("location:vistas/MenuPrincipal.php");
+				$verificar->disconnect();
 			}
 			else
 			{

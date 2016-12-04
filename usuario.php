@@ -3,17 +3,16 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'constantes.php';
-require_once 'login/chequea_login.php';
-require_once 'Librerias/BaseDatos.php';
-require_once 'Librerias/Request.php';
-require_once 'controladores/usuarioController.php';
-require_once 'modelos/usuarioM.php';
+require_once ('constantes.php');
+require_once ('librerias/baseDatos.php5');
+require_once ('librerias/Request.php');
+require_once ('controladores/usuarioController.php');
+require_once ('modelos/usuarioM.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
 
-$controller = new tourController($_SERVER['REQUEST_METHOD']);
+$controller = new usuarioController($_SERVER['REQUEST_METHOD']);
 
 switch ($action) {
 	case 'index':

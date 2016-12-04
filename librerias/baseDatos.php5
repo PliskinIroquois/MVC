@@ -113,18 +113,18 @@ class baseDatos{
 		/**************CAMPOS*********************/
 		for ($i=0;$i<=(count($campos)-1);$i++){
 			if ($i<(count($campos)-1)){
-				$camposStr.=' '.$campos[$i].',';
+				$camposStr.=" ".$campos[$i].",";
 			}else{
-				$camposStr.=' '.$campos[$i];
+				$camposStr.=" ".$campos[$i]."";
 			}
 		}
 		
 		/**************VALORES*********************/
 		for ($i=0;$i<=(count($valores)-1);$i++){
 			if ($i<(count($valores)-1)){
-				$valoresStr.=' '.$valores[$i].',';
+				$valoresStr.=" '".$valores[$i]."',";
 			}else{
-				$valoresStr.=' '.$valores[$i];
+				$valoresStr.=" '".$valores[$i]."'";
 			}
 		}
 		$sql="INSERT INTO $tabla ($camposStr) VALUES ($valoresStr);";

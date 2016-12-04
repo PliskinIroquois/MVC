@@ -42,7 +42,7 @@ history.go(-1);
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Cuidad:</font></td>
-<td width="50%"><input required name="cuidad" type="text" size="46" placeholder="Cuidad" ></td>
+<td width="50%"><input required name="ciudad" type="text" size="46" placeholder="Ciudad" ></td>
 </tr>
 
 <tr>
