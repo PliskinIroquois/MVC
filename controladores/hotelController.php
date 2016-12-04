@@ -30,7 +30,7 @@ class hotelController {
 		}else{
 			echo"<script>
 					history.go(-1);
-					alert('No se encontro un hotel con ese nombre!!');
+					alert('No se encontro un hotel con ese ID!!');
 					</script>";
 		}
 	}
@@ -76,7 +76,7 @@ class hotelController {
 			
 			header('Location: ' . WEB_PATH . '/hotel.php?action=index');
 		} else {
-			require_once ROOT_PATH . '/vistas/hotel/Pre_Editar.php';
+			require_once ROOT_PATH . '/vistas/hotel/Pre_EditarH.php';
 		}
 	}
 

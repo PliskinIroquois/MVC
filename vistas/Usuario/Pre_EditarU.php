@@ -18,13 +18,13 @@ history.go(-1);
 <br />
 <br />
 
-<form action="EditarU.php" method="post" enctype="multipart/form-data">
+<form action="validarUsuario_Edit.php" method="post" enctype="multipart/form-data">
 
 <table align="center" bgcolor ="#CCCCCC" border="0" cellpadding="5" cellspacing="0" width="32%" >
 
 <tr>
-<td width="80%" bgcolor="#CCCCCC"><font size=4>Nombre del Usuario:</font></td>
-<td width="50%"><input required name="user" type="text" size="46" placeholder="Usuario"></td>
+<td width="80%" bgcolor="#CCCCCC"><font size=4>NIF del Usuario:</font></td>
+<td width="50%"><input required name="NIF" type="text" size="46" placeholder="NIF"></td>
 </tr>
 
 <tr>

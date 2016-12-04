@@ -7,7 +7,7 @@ history.go(-1);
 }
 </script>";
 
-foreach ($hoteles as $hotel):
+
 
 echo "<head>
 <link href='css/MenuP.css' rel='stylesheet' type='text/css' />
@@ -19,9 +19,10 @@ echo "<head>
 
 <h1>Editar Hotel</h1>
 <br />
-<br />
+<br />";
+foreach ($hoteles as $hotel):
+echo"<form action='(WEB_PATH . '/hotel.php?action=edit&id=' . $hotel->id)' method='POST' enctype='multipart/form-data'>
 
-<form action='(WEB_PATH . '/hotel.php?action=edit&id=' . $hotel->id) ' method='POST' enctype='multipart/form-data'>
 
 <table align='center' bgcolor ='#CCCCCC' border='0' cellpadding='5' cellspacing='0' width='32%' >
 
@@ -84,9 +85,9 @@ echo "<head>
 
 </table>
 <br />
-<br />
-
-<tr align='left'>
+<br />";
+endforeach;
+echo "<tr align='left'>
         <td width='50%'><input name='safe' type='button' value='Atras' onclick='atras()'/></td>
       	<td width='50%'><input name='safe' type='submit' value='Guardar Datos'/></td>
         <td width='50%'><input name='safe' type='reset' value='Cancelar'/></td>
@@ -95,7 +96,6 @@ echo "<head>
 </center>
 
 </body>";
-endforeach;
 
 ?>
 
