@@ -3,33 +3,34 @@
 
 class usuarioM{
 	public $NIF;
-	public $idUser;
+	public $username;
 	public $nombre;
 	public $apellidos;
-	public $clave;
-	public $tipoUsuario;
 	public $telefono;
 	public $email;
+	public $clave;
+	public $tipoUsuario;
 	private static $tabla = 'usuarios';
 
 	public function __construct(){
 		$this->NIF='';
-		$this->idUser='';
+		$this->username='';
 		$this->nombre='';
 		$this->apellidos='';
-		$this->clave='';
-		$this->tipoUsuario='';
 		$this->telefono='';
 		$this->email='';
+		$this->clave='';
+		$this->tipoUsuario='';
+		
 
 	}
 
 	public function save(){ //--esta funcion puede hacer el update tambien
 		$db=baseDatos::getInstance();
-		$columnas= array('NIF','idUser','nombreU','apellidos','clave','userType','telefono','email');
-		$valores = array($this->NIF,$this->idUser,$this->nombre, $this->apellidos, $this->clave, $this->tipoUsuario,$this->telefono, $this->email);
-		$filtros=array('idUser'=>$this->idUser!= null);
-		if (is_numeric($this->idUser) && $this->idUser > 0) {
+		$columnas= array('NIF','username','nombreUsuario','apellidos','telefono','email','clave','userType');
+		$valores = array($this->NIF,$this->username,$this->nombre, $this->apellidos,$this->telefono, $this->email, $this->clave, $this->tipoUsuario);
+		$filtros=array('NIF'=>$this->NIF!= null);
+		if (is_numeric($this->NIF) && $this->NIF > 0) {
 			$bd->update(self::$tabla, $columnas, $valores, $filtros);
 		} else {
 			$bd->insert(self::$tabla, $columnas, $valores);
@@ -40,25 +41,25 @@ class usuarioM{
 
 	public function delete() {
 		$bd = BaseDatos::getInstance();
-		$bd->delete(self::$tabla, array('idUser' => $this->idUser));
+		$bd->delete(self::$tabla, array('NIF' => $this->NIF));
 	}
 
 	public static function find($idUser) {
 		$bd = BaseDatos::getInstance();
 		$bd->conectar();
-		$columnas= array('NIF','idUser','nombreU','apellidos','clave','userType','telefono','email');
+		$columnas= array('NIF','username','nombreUsuario','apellidos','telefono','email','clave','userType');
 		$filtros = array('idUser' => $idUser);
 		$datos = $bd->select(self::$tabla, $columnas, $filtros);
 		$usuario = new usuarioM();
 		foreach ($datos as $item) {
 			$usuario->NIF = $item['NIF'];
-			$usuario->idUser = $item['idUser'];
-			$usuario->nombre = $item['nombreU'];
+			$usuario->username = $item['username'];
+			$usuario->nombre = $item['nombreUsuario'];
 			$usuario->apellidos = $item['apellidos'];
-			$usuario->clave = $item['clave'];
-			$usuario->userType = $item['userType'];
 			$usuario->telefono = $item['telefono'];
 			$usuario->email = $item['email'];
+			$usuario->clave = $item['clave'];
+			$usuario->tipoUsuario = $item['userType'];
 			break;
 		}
 		$bd->desconectar();
@@ -68,18 +69,18 @@ class usuarioM{
 	public static function findAll() {
 		$bd = BaseDatos::getInstance();
 		$bd->conectar();
-		$columnas= array('NIF','idUser','nombreU','apellidos','clave','userType','telefono','email');
+		$columnas= array('NIF','username','nombreUsuario','apellidos','telefono','email','clave','userType');
 		$datos = $bd->select(self::$tabla, $columnas);
 		$usuarios= array();
 		foreach ($datos as $item) {
 			$usuario->NIF = $item['NIF'];
-			$usuario->idUser = $item['idUser'];
-			$usuario->nombre = $item['nombreU'];
+			$usuario->username = $item['username'];
+			$usuario->nombre = $item['nombreUsuario'];
 			$usuario->apellidos = $item['apellidos'];
-			$usuario->clave = $item['clave'];
-			$usuario->userType = $item['userType'];
 			$usuario->telefono = $item['telefono'];
 			$usuario->email = $item['email'];
+			$usuario->clave = $item['clave'];
+			$usuario->tipoUsuario = $item['userType'];
 			array_push($usuarios, $usuario);
 		}
 		$bd->desconectar();

@@ -17,7 +17,7 @@
 			<li><a href="#"><span class="iconic home"></span> Menu Principal</a></li>
 			<li><a href="#"><span class="iconic plus-alt"></span> Hoteles</a>
 				<ul>
-					<li><a href="hotel.php?action=create">Agregar</a></li>
+					<li><a href="AgregarH.php">Agregar</a></li>
 					<li><a href="Pre_EditarH.php">Editar</a></li>
                     <li><a href="EliminarH.php">Eliminar</a></li>
                     <li><a href="hotel.php?action=show">Mostrar Todos</a></li>
@@ -28,7 +28,7 @@
 					<li><a href="AgregarT.php">Agregar</a></li>
 					<li><a href="Pre_EditarT.php">Editar</a></li>
                     <li><a href="EliminarT.php">Eliminar</a></li>
-                    <li><a href="MostrarT.php">Mostrar Todos</a></li>
+                    <li><a href="tour.php?action=show">Mostrar Todos</a></li>
 				</ul>
 			</li>
 			<li><a href="#"><span class="iconic plus-alt"></span> Usuarios</a>
@@ -36,7 +36,7 @@
 					<li><a href="AgregarU.php">Agregar</a></li>
 					<li><a href="Pre_EditarU.php">Editar</a></li>
                     <li><a href="EliminarU.php">Eliminar</a></li>
-                    <li><a href="MostrarU.php">Mostrar Todos</a></li>
+                    <li><a href="usuario.php?action=show">Mostrar Todos</a></li>
 				</ul>
 			</li>
             <li><a href="#"><span class="iconic plus-alt"></span> Salir</a></li>

@@ -18,60 +18,64 @@ history.go(-1);
 <br />
 <br />
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="usuario.php?action=create" method="post" enctype="multipart/form-data">
 
 <table align="center" bgcolor ="#CCCCCC" border="0" cellpadding="5" cellspacing="0" width="32%" >
 
     	<tr>
        	<td width="80%" bgcolor="#CCCCCC"><font size=4>Identificacion:</font></td>
-   	<td width="50%"><input required name="USUARIO[]" type="text" size="46" placeholder="Identificacion" onKeyPress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"></td>
+   	<td width="50%"><input required name="NIF" type="text" size="46" placeholder="Identificacion" onKeyPress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"></td>
    	</tr>
     
     <tr>
-<td width="80%" bgcolor="#CCCCCC"><font size=4>ID Usuario:</font></td>
-<td width="50%"><input required name="USUARIO[]" type="text" size="46" placeholder="ID Usuario"></td>
+<td width="80%" bgcolor="#CCCCCC"><font size=4>UserName:</font></td>
+<td width="50%"><input required name="username" type="text" size="46" placeholder="ID Usuario"></td>
 </tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Nombre:</font></td>
-<td width="50%"><input required name="USUARIO[]" type="text" size="46" placeholder="Nombre"></td>
+<td width="50%"><input required name="nombre" type="text" size="46" placeholder="Nombre"></td>
 </tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Apellidos:</font></td>
-<td width="50%"><input required name="USUARIO[]" type="text" size="46" placeholder="Apellidos" ></td>
+<td width="50%"><input required name="apellidos" type="text" size="46" placeholder="Apellidos" ></td>
 </tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Email:</font></td>
-<td width="50%"><input required name="USUARIO[]" type="text" size="46" placeholder="Email" ></td>
+<td width="50%"><input required name="email" type="text" size="46" placeholder="Email" ></td>
 </tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>Telefono:</font></td>
-<td width="50%"><input required name="USUARIO[]" type="text" size="46" placeholder="Telefono" ></td>
+<td width="50%"><input required name="telefono" type="text" size="46" placeholder="Telefono" ></td>
 </tr>
 
 <tr>
-<td width="80%" bgcolor="#CCCCCC"><font size=4>Contraseña:</font></td>
-<td width="50%"><input type="password" required name="USUARIO[]" type="text" size="46" placeholder="Contraseña" ></td>
+<td width="80%" bgcolor="#CCCCCC"><font size=4>Password:</font></td>
+<td width="50%"><input type="password" required name="clave" type="text" size="46" placeholder="Password" ></td>
 </tr>
 
 <tr>
-<td width="80%" bgcolor="#CCCCCC"><font size=4>Repetir contraseña:</font></td>
-<td width="50%"><input type="password" required name="USUARIO[]" type="text" size="46" placeholder="Repetir contraseña" ></td>
+<td width="80%" bgcolor="#CCCCCC"><font size=4>Repetir Password:</font></td>
+<td width="50%"><input type="password" required name="clave2" type="text" size="46" placeholder="Repetir Password" ></td>
 </tr>
+
+<tr align="left">
+		<td width="50%">Tipo de Usuario</td>
+        <td width="80%"><select name="op1" id="op1"
+  <option value="Administrador">Administrador</option>
+  <option value="Gestionador_Contenido">Gestionador de Contenido</option>
+  <option value="userWeb" >User Web</option>
+</select></td>
+ 	</tr>
 
 <tr>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>_________________</font></td>
 <td width="80%" bgcolor="#CCCCCC"><font size=4>___________________________________</font></td>
 </tr>
 
-<tr align="left">
-		<td width="50%">Escoger el tipo de Usuario</td>
-        <td width="50%">Administrador<input name="op1" type="radio" value="1"/><br /><br /> Generador de Contenido<input name="op1" type="radio" value="2"/><br /><br /> Usuario Web<input name="op1" type="radio" value="3"/></td>
-        <td width="50%"></td>
- 	</tr>
 
 </table>
 <br />
