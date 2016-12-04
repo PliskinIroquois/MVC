@@ -30,6 +30,9 @@ switch ($action) {
 		$request = new Request($_POST);
 		$controller->edit($id, $request);
 		break;
+	case 'showEdit':
+		$controller->findByID($id);
+		break;
 	case 'delete':
 		$controller->delete($id);
 		break;

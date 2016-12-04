@@ -1,7 +1,7 @@
 <?php
 /*** CLASE HOTEL****/
 
-class hotel{
+class hotelM{
 
 	public $id;
 	public $nombre;
@@ -29,9 +29,9 @@ class hotel{
 
 	public function save(){ //--esta funcion puede hacer el update tambien
 		$db=baseDatos::getInstance();
-		$columnas= array('idH','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
+		$columnas= array('idHotel','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
 		$valores = array($this->id,$this->nombre, $this->descripcion, $this->cantidadEstrellas, $this->ciudad, $this->direccion, $this->telefono, $this->email, $this->ubicacionFotografia);
-		$filtros=array('idH'=>$this->id!= null);
+		$filtros=array('idHotel'=>$this->id!= null);
 		if (is_numeric($this->id) && $this->id > 0) {
 			$bd->update(self::$tabla, $columnas, $valores, $filtros);
 		} else {
@@ -50,12 +50,12 @@ class hotel{
 	public static function find($id) {
 		$bd = BaseDatos::getInstance();
 		$bd->conectar();
-		$columnas= array('idH','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
-		$filtros = array('idH' => $id);
+		$columnas= array('idHotel','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
+		$filtros = array('idHotel' => $id);
 		$datos = $bd->select(self::$tabla, $columnas, $filtros);
-		$hotel = new hotel();
+		$hotel = new hotelM();
 		foreach ($datos as $item) {
-			$hotel->id = $item['idH'];
+			$hotel->id = $item['idHotel'];
 			$hotel->nombre = $item['nombre'];
 			$hotel->descripcion = $item['descripcion'];
 			$hotel->cantidadEstrellas = $item['cantidadEstrellas'];
@@ -72,12 +72,12 @@ class hotel{
 	public static function findAll() {
 		$bd = BaseDatos::getInstance();
 		$bd->conectar();
-		$columnas= array('idH','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
+		$columnas= array('idHotel','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
 		$datos = $bd->select(self::$tabla, $columnas);
 		$hoteles= array();
 		foreach ($datos as $item) {
-			$hotel = new hotel();
-			$hotel->id = $item['idH'];
+			$hotel = new hotelM();
+			$hotel->id = $item['idHotel'];
 			$hotel->nombre = $item['nombre'];
 			$hotel->descripcion = $item['descripcion'];
 			$hotel->cantidadEstrellas = $item['cantidadEstrellas'];

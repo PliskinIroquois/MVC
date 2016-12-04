@@ -1,7 +1,7 @@
 <?php
 /*** CLASE TOUR****/
 
-class tour{
+class tourM{
 
 	public $id;
 	public $nombre;
@@ -45,7 +45,7 @@ class tour{
 		$columnas= array('idT','nombreT','descripcion','empresa','telefono','email');
 		$filtros = array('idT' => $id);
 		$datos = $bd->select(self::$tabla, $columnas, $filtros);
-		$tour = new tour();
+		$tour = new tourM();
 		foreach ($datos as $item) {
 			$tour->id = $item['idT'];
 			$tour->nombre = $item['nombreT'];
@@ -66,7 +66,7 @@ class tour{
 		$datos = $bd->select(self::$tabla, $columnas);
 		$toures= array();
 		foreach ($datos as $item) {
-			$tour = new tour();
+			$tour = new tourM();
 			$tour->id = $item['idT'];
 			$tour->nombre = $item['nombreT'];
 			$tour->descripcion = $item['descripcion'];

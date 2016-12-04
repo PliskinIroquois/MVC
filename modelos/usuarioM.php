@@ -1,7 +1,7 @@
 <?php
 /*** CLASE USUARIO****/
 
-class usuario{
+class usuarioM{
 	public $NIF;
 	public $idUser;
 	public $nombre;
@@ -49,7 +49,7 @@ class usuario{
 		$columnas= array('NIF','idUser','nombreU','apellidos','clave','userType','telefono','email');
 		$filtros = array('idUser' => $idUser);
 		$datos = $bd->select(self::$tabla, $columnas, $filtros);
-		$usuario = new usuario();
+		$usuario = new usuarioM();
 		foreach ($datos as $item) {
 			$usuario->NIF = $item['NIF'];
 			$usuario->idUser = $item['idUser'];
