@@ -1,9 +1,9 @@
 <?php
-	include('login/login.php'); // Include Login Script
+	include('../../login.php'); // Include Login Script
 
 	if ((isset($_SESSION['username']) != '')) 
 	{
-		header('Location:vistas/MenuPrincipal.php');
+		header('Location:../MenuPrincipal.php');
 	}	
 ?>
 <!doctype html>

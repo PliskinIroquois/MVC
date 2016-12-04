@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include_once("constantes.php"); 
-	include_once 'librerias/baseDatos.php5';
+	include_once("../../constantes.php"); 
+	include_once '../../librerias/baseDatos.php5';
 	
 	$error = ""; 
 	
