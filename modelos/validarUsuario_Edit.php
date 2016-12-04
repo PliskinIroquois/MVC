@@ -4,7 +4,7 @@ $idUsuario = $_POST['user'];
 
 if($idTour<>""){
 	
-	echo (WEB_PATH . '/usuario.php?action=showEdit&id=' . $idUsuario);
+	echo (WEB_PATH . '../../usuario.php?action=showEdit&id=' . $idUsuario);
 	
 }else{
 	

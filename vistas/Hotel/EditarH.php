@@ -21,7 +21,7 @@ echo "<head>
 <br />
 <br />";
 foreach ($hoteles as $hotel):
-echo"<form action='(WEB_PATH . '/hotel.php?action=edit&id=' . $hotel->id)' method='POST' enctype='multipart/form-data'>
+echo"<form action='(WEB_PATH . '../../hotel.php?action=edit&id=' . $hotel->id)' method='POST' enctype='multipart/form-data'>
 
 
 <table align='center' bgcolor ='#CCCCCC' border='0' cellpadding='5' cellspacing='0' width='32%' >

@@ -20,7 +20,7 @@ echo "<head>
 <br />
 <br />";
 foreach ($usuarios as $usuario):
-echo "<form action='(WEB_PATH . '/usuario.php?action=edit&id=' . $usuario->NIF)' method='POST' enctype='multipart/form-data'>
+echo "<form action='(WEB_PATH . '../../usuario.php?action=edit&id=' . $usuario->NIF)' method='POST' enctype='multipart/form-data'>
 
 <table align='center' bgcolor ='#CCCCCC' border='0' cellpadding='5' cellspacing='0' width='32%' >
 

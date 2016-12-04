@@ -4,7 +4,7 @@ $idUsuario = $_POST['user'];
 
 if($idTour<>""){
 	
-	echo (WEB_PATH . '/usuario.php?action=deletet&id=' . $idUsuario);
+	echo (WEB_PATH . '../../usuario.php?action=deletet&id=' . $idUsuario);
 	
 }else{
 	

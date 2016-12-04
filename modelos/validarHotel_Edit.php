@@ -4,7 +4,7 @@ $idHotel = $_POST['hotel'];
 
 if($idHotel<>0){
 	
-	echo (WEB_PATH . '/hotel.php?action=showEdit&id=' . $idHotel);
+	echo (WEB_PATH . '../../hotel.php?action=showEdit&id=' . $idHotel);
 	
 }else{
 	
