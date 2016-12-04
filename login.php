@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include("../constantes.php"); 
-	include_once ROOT_PATH .'liberias/baseDatos.php5';
+	include_once("constantes.php"); 
+	include_once 'librerias/baseDatos.php5';
 	
 	$error = ""; 
 	
@@ -13,8 +13,21 @@
 			$error = "Ambos campos son requeridos!.";
 		}else
 		{
+			
 			$verificar=baseDatos::getInstance();
-			$verificar= new baseDatos(DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_SERVER);
+			
+		
+			/*
+			 * define('BD_USUARIO', 'root');
+define('BD_CONTRASENA', 'root');
+define('BD_NOMBRE_BD', 'proyecto_p4');
+define('BD_SERVIDOR', 'localhost');
+			 * 
+			 * 
+			 */
+			$verificar=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+			
+			
 			
 			$username=$_POST['username'];
 			$password=$_POST['password'];
@@ -25,7 +38,7 @@
 			
 			//"SELECT uid FROM users WHERE username='$username' and password='$password'";
 			$filtros = array($username,md5($password)); //cambio de pass a md5
-			$campos=array("username","password");
+			$campos=array("username","clave");
 			$verificar->connect();
 			$resultado=$verificar->select('usuarios', $filtros, $campos, true);
 			
@@ -34,7 +47,7 @@
 			if(mysqli_fetch_array($resultado)){
 				session_start();
 				$_SESSION['nombreUsuario']=$username;
-				header("location:../MenuPrincipal.php");
+				header("location:vistas/MenuPrincipal.php");
 			}
 			else
 			{

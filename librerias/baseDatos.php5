@@ -166,7 +166,15 @@ class baseDatos{
 	{
 		if(is_null(self::$DB))
 		{
-			self::$DB= new baseDatos(DB_USUARIO, DB_CONTRASENA, DB_NOMBRE, DB_SERVIDOR);
+			self::$DB= new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD,BD_SERVIDOR);
+			/*
+			 * define('BD_USUARIO', 'root');
+			 define('BD_CONTRASENA', 'root');
+			 define('BD_NOMBRE_BD', 'proyecto_p4');
+			 define('BD_SERVIDOR', 'localhost');
+			 *
+			 *
+			 */
 		}
 		return self::$DB;
 	}
