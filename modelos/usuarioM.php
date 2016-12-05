@@ -55,7 +55,8 @@ class usuarioM{
 
 	public static function find($idUser) {
 		$bd = BaseDatos::getInstance();
-		$bd->conectar();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		$columnas= array('NIF','username','nombreUsuario','apellidos','telefono','email','clave','userType');
 		$filtros = array('idUser' => $idUser);
 		$datos = $bd->select(self::$tabla, $columnas, $filtros);
@@ -71,17 +72,20 @@ class usuarioM{
 			$usuario->tipoUsuario = $item['userType'];
 			break;
 		}
-		$bd->desconectar();
+		$bd->disconnect();
 		return $usuario;
 	}
 
 	public static function findAll() {
 		$bd = BaseDatos::getInstance();
-		$bd->conectar();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		$columnas= array('NIF','username','nombreUsuario','apellidos','telefono','email','clave','userType');
-		$datos = $bd->select(self::$tabla, $columnas);
+		$datos = $bd->select(self::$tabla, $columnas,' ',false);
 		$usuarios= array();
+	
 		foreach ($datos as $item) {
+			$usuario = new usuarioM();
 			$usuario->NIF = $item['NIF'];
 			$usuario->username = $item['username'];
 			$usuario->nombre = $item['nombreUsuario'];
@@ -92,7 +96,7 @@ class usuarioM{
 			$usuario->tipoUsuario = $item['userType'];
 			array_push($usuarios, $usuario);
 		}
-		$bd->desconectar();
+		$bd->disconnect();
 		return $usuarios;
 	}
 

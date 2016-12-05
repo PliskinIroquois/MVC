@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-12-2016 a las 06:59:07
+-- Tiempo de generación: 04-12-2016 a las 12:38:10
 -- Versión del servidor: 5.6.20-log
--- Versión de PHP: 7.0.3
+-- Versión de PHP: 5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `hoteles` (
+  `idHotel` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `cantidadEstrellas` varchar(10) NOT NULL,
@@ -34,9 +35,20 @@ CREATE TABLE `hoteles` (
   `direccion` varchar(255) NOT NULL,
   `telefono` varchar(12) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `ubicacionFotografia` varchar(120) NOT NULL,
-  `IdH` int(11) NOT NULL
+  `ubicacionFotografia` varchar(120) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `hoteles`
+--
+
+INSERT INTO `hoteles` (`idHotel`, `nombre`, `descripcion`, `cantidadEstrellas`, `ciudad`, `direccion`, `telefono`, `email`, `ubicacionFotografia`) VALUES
+(1, 'Marriot', 'ALTA GAMA', '5', 'Heredia', 'Belen Heredia', '22014578', 'marriot@gmail.com', 'N/A'),
+(2, 'Barcelo', 'Guanacaste', '4', 'Liberia', 'Canchas de golf', '22104578', 'marriot@gmail.com', 'N/A'),
+(3, 'Turrialba ', 'ALTA GAMA', '2', 'Cartago', 'Opera', '22014578', 'marriot@gmail.com', 'N/A'),
+(4, 'SanJose', 'MEDIA', '5', 'San Jose', 'lkjasld', '22014578', 'marriot@gmail.com', 'N/A'),
+(5, 'Jaco Beach', 'PLAYA', '4', 'Puntarenas', 'Jaco', '22014578', 'marriot@gmail.com', 'N/A'),
+(6, 'Marriot2', 'lop', '5', 'Heredia', 'Belen', '22104578', 'marriot@gmail.com', 'N/A');
 
 -- --------------------------------------------------------
 
@@ -45,14 +57,21 @@ CREATE TABLE `hoteles` (
 --
 
 CREATE TABLE `tours` (
+  `idTour` int(11) NOT NULL,
   `nombreTour` varchar(45) NOT NULL,
   `descripcionTour` varchar(255) NOT NULL,
-  `nombreEmpresa` varchar(45) NOT NULL,
+  `empresa` varchar(45) NOT NULL,
   `telefono` varchar(12) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `IdTour` int(11) NOT NULL,
   `ubicacionTour` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tours`
+--
+
+INSERT INTO `tours` (`idTour`, `nombreTour`, `descripcionTour`, `empresa`, `telefono`, `email`, `ubicacionTour`) VALUES
+(1, 'Canopy', 'ALTO RIESGO', 'Africa Mia', '22561048', 'marriot@gmail.com', 'Guanacaste');
 
 -- --------------------------------------------------------
 
@@ -67,7 +86,7 @@ CREATE TABLE `usuarios` (
   `apellidos` varchar(92) NOT NULL,
   `email` varchar(25) NOT NULL,
   `telefono` varchar(12) NOT NULL,
-  `clave` varchar(30) NOT NULL,
+  `clave` varchar(500) NOT NULL,
   `userType` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -76,7 +95,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`NIF`, `username`, `nombreUsuario`, `apellidos`, `email`, `telefono`, `clave`, `userType`) VALUES
-('123', 'root', '', '', '', '', 'admin', 'admin');
+('123', 'root', '0', '0', '0', '0', '21232f297a57a5a743894a0e4a801fc3', '0'),
+('101110111', 'pep19', 'Joshep', 'Guardiola', 'marriot@gmail.com', '22561048', 'messi', 'Administrador');
 
 --
 -- Índices para tablas volcadas
@@ -86,13 +106,13 @@ INSERT INTO `usuarios` (`NIF`, `username`, `nombreUsuario`, `apellidos`, `email`
 -- Indices de la tabla `hoteles`
 --
 ALTER TABLE `hoteles`
-  ADD PRIMARY KEY (`IdH`);
+  ADD PRIMARY KEY (`idHotel`);
 
 --
 -- Indices de la tabla `tours`
 --
 ALTER TABLE `tours`
-  ADD PRIMARY KEY (`IdTour`);
+  ADD PRIMARY KEY (`idTour`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -108,12 +128,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `hoteles`
 --
 ALTER TABLE `hoteles`
-  MODIFY `IdH` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idHotel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `IdTour` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTour` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

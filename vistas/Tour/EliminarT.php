@@ -16,7 +16,7 @@ echo "<body>
 <br />
 <br />
 
-<form action='../../modelos/validarTour_Delete.php' method='POST' enctype='multipart/form-data'>
+<form action='../../modelos/validarTour_Delete.php' method='post' enctype='multipart/form-data'>
 
 <table align='center' bgcolor ='#CCCCCC' border='0' cellpadding='5' cellspacing='0' width='32%' >
 

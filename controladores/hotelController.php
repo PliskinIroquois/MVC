@@ -14,13 +14,14 @@ class hotelController {
 	}
 
 	public function index() {
-		require_once 'vistas/MenuPrincipal.php';
+		$hoteles = hotelM::findAll();
+			require_once 'vistas/Hotel/index.php';
 	}
 
 	public function show() {
 		$hoteles = hotelM::findAll();
 		if($hoteles<>null){
-		require_once 'Hotel/MostrarH.php';
+		require_once 'vistas/Hotel/MostrarH.php';
 		}else{
 			echo"<script>
 					history.go(-1);
@@ -77,7 +78,7 @@ class hotelController {
 			$hotel->ubicacionFotografia = $destino;
 			$hotel->save();
 			
-			header('Location: ' . WEB_PATH . '../../hotel.php?action=index');
+			header('Location: ' . '/vistas/MenuPrincipal.php');
 		} else {
 			require_once ROOT_PATH . 'Hotel/Pre_EditarH.php';
 		}
@@ -86,7 +87,7 @@ class hotelController {
 	public function delete($id) {
 		$hotel = hotelM::find($id);
 		$hotel->delete();
-		header('Location: ' . WEB_PATH . '../../hotel.php?action=index');
+		header('Location: '.'/vistas/MenuPrincipal.php');
 	}
 
 }

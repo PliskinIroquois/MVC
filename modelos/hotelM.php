@@ -56,15 +56,20 @@ class hotelM{
 
 	public function delete() {
 		$bd = BaseDatos::getInstance();
-		$bd->delete(self::$tabla, array('idH' => $this->id));
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
+		$columnas= array('idHotel');
+		$bd->delete(self::$tabla,$columnas , array($this->id));
+		$bd->disconnect();
 	}
 
 	public static function find($id) {
 		$bd = BaseDatos::getInstance();
-		$bd->conectar();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		$columnas= array('idHotel','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
 		$filtros = array('idHotel' => $id);
-		$datos = $bd->select(self::$tabla, $columnas, $filtros);
+		$datos = $bd->select(self::$tabla, $columnas, $filtros,true);
 		$hotel = new hotelM();
 		foreach ($datos as $item) {
 			$hotel->id = $item['idHotel'];
@@ -77,15 +82,17 @@ class hotelM{
 			$hotel->ubicacionFotografia = $item['ubicacionFotografia'];
 			break;
 		}
-		$bd->desconectar();
+		$bd->disconnect();
 		return $hotel;
 	}
 
 	public static function findAll() {
 		$bd = BaseDatos::getInstance();
-		$bd->conectar();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		$columnas= array('idHotel','nombre','descripcion','cantidadEstrellas','ciudad','direccion','telefono','email','ubicacionFotografia');
-		$datos = $bd->select(self::$tabla, $columnas);
+		
+		$datos = $bd->select(self::$tabla, $columnas,' ',false);
 		$hoteles= array();
 		foreach ($datos as $item) {
 			$hotel = new hotelM();
@@ -99,7 +106,7 @@ class hotelM{
 			$hotel->ubicacionFotografia = $item['ubicacionFotografia'];
 			array_push($hoteles, $hotel);
 		}
-		$bd->desconectar();
+		$bd->disconnect();
 		return $hoteles;
 	}
 

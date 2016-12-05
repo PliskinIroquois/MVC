@@ -57,10 +57,11 @@ class tourM{
 
 	public static function find($id) {
 		$bd = BaseDatos::getInstance();
-		$bd->conectar();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		$columnas= array('idTour','nombreTour','descripcionTour','empresa','telefono','email','ubicacionTour');
 		$filtros = array('idT' => $id);
-		$datos = $bd->select(self::$tabla, $columnas, $filtros);
+		$datos = $bd->select(self::$tabla, $columnas, $filtros,true);
 		$tour = new tourM();
 		foreach ($datos as $item) {
 			$tour->id = $item['idTour'];
@@ -72,28 +73,29 @@ class tourM{
 			$tour->ubicacionTour = $item['ubicacionTour'];
 			break;
 		}
-		$bd->desconectar();
+		$bd->disconnect();
 		return $tour;
 	}
 
 	public static function findAll() {
 		$bd = BaseDatos::getInstance();
-		$bd->conectar();
+		$bd=new baseDatos(BD_USUARIO, BD_CONTRASENA, BD_NOMBRE_BD, BD_SERVIDOR);
+		$bd->connect();
 		$columnas= array('idTour','nombreTour','descripcionTour','empresa','telefono','email','ubicacionTour');
-		$datos = $bd->select(self::$tabla, $columnas);
+		$datos = $bd->select(self::$tabla, $columnas,' ',false);
 		$toures= array();
 		foreach ($datos as $item) {
 			$tour = new tourM();
 			$tour->id = $item['idTour'];
 			$tour->nombre = $item['nombreTour'];
 			$tour->descripcion = $item['descripcionTour'];
-			$tour->cantidadEstrellas = $item['empresa'];
+			$tour->empresa = $item['empresa'];
 			$tour->telefono = $item['telefono'];
 			$tour->email = $item['email'];
 			$tour->ubicacionTour = $item['ubicacionTour'];
 			array_push($toures, $tour);
 		}
-		$bd->desconectar();
+		$bd->disconnect();
 		return $toures;
 	}
 
